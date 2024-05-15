@@ -69,7 +69,7 @@ if __name__ == '__main__':
     checkpoint_callback = ModelCheckpoint(dirpath=args.model_dir, save_top_k=1, monitor="MAE/Valid", filename='best')
     trainer = Trainer.from_argparse_args(
         args,
-        max_epochs=args.epochs,
+        max_epochs=args.num_epochs,
         logger=logger,
         accelerator='gpu' if torch.cuda.is_available() else 'cpu',
         log_every_n_steps=10,
